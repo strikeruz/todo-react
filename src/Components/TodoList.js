@@ -1,7 +1,8 @@
 import React from 'react';
 import Todo from './Todo';
 
-export default function TodoList ({ todolist, removeTodo, completeTodo }) {
+export default function TodoList (props) {
+	const { todolist, removeTodo, completeTodo } = props
 	return (
 		<div className='todo-container'>
 			<ul id='todolist'>

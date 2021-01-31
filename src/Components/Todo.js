@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function Todo({todo, removeTodo, completeTodo}) {
+export default function Todo(props) {
+    const {todo, removeTodo, completeTodo} = props
     return (
         <div className='todo'>
             <li className={`item ${todo.completed ? 'completed' : ''}`}>

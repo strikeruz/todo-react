@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
-export default function Form ({ addTodo, filterTodo }) {
+
+export default function Form (props) {
+	const { addTodo, filterTodo } = props
 	const { register, errors, handleSubmit } = useForm();
 	const [title, setTitle] = useState('')
-
+	/**
+	 * Method for submit action
+	 * @param {event} 
+	 */
 	const submit = (e) => {
 		addTodo({
 			id: Date.now(),
@@ -14,14 +19,25 @@ export default function Form ({ addTodo, filterTodo }) {
 		setTitle('')
     };
 
+	/**
+	 * Method for change input
+	 * @param {event}
+	 */
     const changeInput = (e) => {
         setTitle(e.target.value)
     }
 
+	/**
+	 * Method for change filter by value
+	 * @param {event}
+	 */
 	const changeFilter = (e) => {
 		filterTodo(e.target.value)
 	}
 
+	/**
+	 * @return {Component} Form component
+	*/
 	return (
 		<div className='todo-area'>
 			<form action='#' onSubmit={handleSubmit(submit)}>
